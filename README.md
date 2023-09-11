@@ -22,7 +22,7 @@ composer require microcmsio/microcms-php-sdk
 composer require vlucas/phpdotenv
 ```
     
-# Setting up your API KEY from microcms.io
+# API KEY
     
 public_html/src/.env
 ```bash
