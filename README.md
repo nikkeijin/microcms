@@ -4,7 +4,7 @@
 https://microcms.io/
 ```
     
-# Composer
+# Composer, MicroCMS SDK and PHPDOTENV
     
 ```bash
 cd public_html
