@@ -1,9 +1,16 @@
 # Headless microcms.io with PHP
         
 # Composer
-        
+    
+```bash
+cd public_html
+```
+    
 ```bash
 composer init
+```
+    
+```bash
 composer require microcmsio/microcms-php-sdk
 ```
     
@@ -11,16 +18,16 @@ composer require microcmsio/microcms-php-sdk
 composer require vlucas/phpdotenv
 ```
     
-# Setting up API KEY from microcms.io
+# Setting up your API KEY from microcms.io
     
 public_html/src/.env
 ```bash
-MICROCMS_API_USERNAME=david
-MICROCMS_API_KEY=XXXXXXXXXX
+MICROCMS_API_USERNAME=YOUR_DOMAIN
+MICROCMS_API_KEY=YOUR_API_KEY
 ```
     
 # Docker
-                
+    
 ```bash
 docker-compose up -d
 ```
