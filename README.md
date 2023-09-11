@@ -1,4 +1,4 @@
-# Headless Microcms with PHP
+# Headless microcms.io with PHP
 
 ```bash
 docker-compose up -d
