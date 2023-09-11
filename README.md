@@ -30,6 +30,12 @@ MICROCMS_API_USERNAME=YOUR_DOMAIN
 MICROCMS_API_KEY=YOUR_API_KEY
 ```
     
+# End Point
+public_html/src/archive.php
+```
+$archive = $client->list("news");
+```
+    
 # Docker
     
 ```bash
