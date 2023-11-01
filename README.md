@@ -4,7 +4,7 @@
 https://microcms.io/
 ```
     
-# Composer, MicroCMS SDK and PHPDOTENV
+## Composer, MicroCMS SDK and PHPDOTENV
     
 ```bash
 cd public_html
@@ -22,7 +22,7 @@ composer require microcmsio/microcms-php-sdk
 composer require vlucas/phpdotenv
 ```
     
-# API KEY
+## API KEY
     
 public_html/src/.env
 ```bash
@@ -30,13 +30,13 @@ MICROCMS_API_USERNAME=YOUR_DOMAIN
 MICROCMS_API_KEY=YOUR_API_KEY
 ```
     
-# End Point
+## End Point
 public_html/src/archive.php
 ```
 $archive = $client->list("news");
 ```
     
-# Docker
+## Docker
     
 ```bash
 docker-compose up -d
