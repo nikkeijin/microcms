@@ -19,7 +19,13 @@
         $the_content = $single_page->content;
         $the_permalink = "post?id=" . $the_id;
 
-        if (function_exists('the_post')) the_post($the_id, $the_title, $the_content, $the_permalink);
+        if (isset($single_page->thumbnail) && isset($single_page->thumbnail->url)) {
+            $the_post_thumbnail_url = $single_page->thumbnail->url;
+        } else {
+            $the_post_thumbnail_url = 'https://picsum.photos/1024';
+        }
+
+        if (function_exists('the_post')) the_post($the_id, $the_title, $the_content, $the_permalink, $the_post_thumbnail_url);
 
     }
 
