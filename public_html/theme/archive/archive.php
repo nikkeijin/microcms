@@ -2,7 +2,7 @@
 
 <?php include_once('./src/archive.php'); ?>
 
-<?php function the_post($post_id, $the_title, $the_content, $the_permalink)
+<?php function the_post($post_id, $the_title, $the_content, $the_permalink, $the_post_thumbnail_url)
 { ?>
         <!-- article -->
         <article>
