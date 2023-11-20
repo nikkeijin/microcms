@@ -12,8 +12,8 @@ function page_router()
     $url = $_SERVER['REQUEST_URI'];
 
     $page = [
-        "/news" => "theme/archive/archive.php",
-        "/post" => "theme/archive/single.php",
+        "/news" => "src/archive.php",
+        "/post" => "src/single.php",
     ];
 
     $template = 'theme/pages' . $url . '.php';
@@ -40,9 +40,10 @@ Template Directory Methods
 */
 
 $directory = dirname(__DIR__);
+
 function get_template_directory_uri()
 {
-    global $directory;
+    return home_url();
 }
 
 
