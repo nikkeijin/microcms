@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/theme/assets/css/style.css">
+    <?php if (is_page('news')) { ?>
+        <script defer src="<?= get_template_directory_uri(); ?>/theme/assets/js/pagination.js"></script>
+    <?php } ?>
     <script defer src="<?= get_template_directory_uri(); ?>/theme/assets/js/app.js"></script>
     <title>
         <?php
