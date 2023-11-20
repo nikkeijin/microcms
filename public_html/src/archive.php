@@ -54,18 +54,19 @@ function have_posts($post_id, $the_title, $the_content, $the_permalink, $the_pos
         if ($page > $totalPages && $totalPages > 0) { include_once('404.php'); } 
         else { ?>
             <!-- pagination-->
-            <div class="pagination">
-                <?php if ($page > 1): ?>
-                    <a href="?page=<?php echo $page - 1; ?>">Previous</a>
-                <?php endif; ?>
-            
-                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                <?php endfor; ?>
-            
-                <?php if ($page < $totalPages): ?>
-                    <a href="?page=<?php echo $page + 1; ?>">Next</a>
-                <?php endif; ?>
+            <div class="nav-links">
+            <?php if ($page > 1): ?>
+            <a class="prev page-numbers" href="?page=<?php echo $page - 1; ?>">Previous</a>
+            <?php endif; ?>
+
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a class="page-numbers" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <?php endfor; ?>
+
+            <?php if ($page < $totalPages): ?>
+            <a class="next page-numbers" href="?page=<?php echo $page + 1; ?>">Next</a>
+            <?php endif; ?>
+
             </div>
         <?php } ?>
 
