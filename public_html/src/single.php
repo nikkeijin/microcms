@@ -13,12 +13,6 @@ function single_page($client) {
     if(!$single_page) { 
         include(__DIR__ . '/../theme/pages/404.php'); return; 
     }
-
-    /*
-    echo '<pre>';
-        print_r($single_page);
-    echo '</pre>';
-    */
     
     $postId = $_GET['id'];
     $single_page = $client->get("news", $postId);
