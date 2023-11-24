@@ -51,23 +51,27 @@ function have_posts($the_ID, $the_title, $the_category, $the_content, $the_perma
 
 
 <?php
-    function the_posts_pagination($page, $totalPages){ 
-        if ($page > $totalPages && $totalPages > 0) { include_once('404.php'); } 
-        else { ?>
-            <!-- pagination-->
-            <div class="nav-links">
-            <?php if ($page > 1): ?>
-            <a class="prev page-numbers" href="?page=<?php echo $page - 1; ?>">Previous</a>
-            <?php endif; ?>
+    
+    function the_posts_pagination($page, $totalPages) {
 
-            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a class="page-numbers" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-            <?php endfor; ?>
+    if ($page > $totalPages && $totalPages > 0) return; ?>
+    
+    <!-- pagination-->
+    <div class="nav-links">
+        <?php if ($page > 1): ?>
+        <a class="prev page-numbers" href="?page=<?php echo $page - 1; ?>">Previous</a>
+        <?php endif; ?>
 
-            <?php if ($page < $totalPages): ?>
-            <a class="next page-numbers" href="?page=<?php echo $page + 1; ?>">Next</a>
-            <?php endif; ?>
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a class="page-numbers" href="?page=<?php echo $i; ?>">
+            <?php echo $i; ?>
+        </a>
+        <?php endfor; ?>
 
-            </div>
-        <?php } ?>
+        <?php if ($page < $totalPages): ?>
+        <a class="next page-numbers" href="?page=<?php echo $page + 1; ?>">Next</a>
+        <?php endif; ?>
+
+    </div>
+
 <?php } ?>
