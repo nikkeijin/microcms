@@ -21,18 +21,20 @@
 
         foreach ($archive->contents as $single_page) {
 
-            $the_id = $single_page->id;
+            /*
+            echo '<pre>';
+                print_r($archive);
+            echo '</pre>';
+            */
+
+            $the_ID = $single_page->id;
             $the_title = $single_page->title;
             $the_content = $single_page->content;
-            $the_permalink = "post?id=" . $the_id;
+            $the_permalink = "post?id=" . $the_ID;
+            $the_category = isset($single_page->category->name) ? $single_page->category->name : '';
+            $the_post_thumbnail_url = isset($single_page->thumbnail->url) ? $single_page->thumbnail->url : 'https://picsum.photos/1024';
             
-            if (isset($single_page->thumbnail) && isset($single_page->thumbnail->url)) {
-                $the_post_thumbnail_url = $single_page->thumbnail->url;
-            } else {
-                $the_post_thumbnail_url = 'https://picsum.photos/1024';
-            }
-
-            if (function_exists('have_posts')) have_posts($the_id, $the_title, $the_content, $the_permalink, $the_post_thumbnail_url);
+            if (function_exists('have_posts')) have_posts($the_ID, $the_title, $the_category, $the_content, $the_permalink, $the_post_thumbnail_url);
 
         }
     }
@@ -41,15 +43,14 @@
 
 <?php
 
-function have_posts($post_id, $the_title, $the_content, $the_permalink, $the_post_thumbnail_url) {
-    include(__DIR__ . '/../theme/archive/post.php');
+function have_posts($the_ID, $the_title, $the_category, $the_content, $the_permalink, $the_post_thumbnail_url) {
+    include(__DIR__ . '/../theme/components/post.php');
 }
 
 ?>
 
 
 <?php
-
     function the_posts_pagination($page, $totalPages){ 
         if ($page > $totalPages && $totalPages > 0) { include_once('404.php'); } 
         else { ?>
@@ -69,5 +70,4 @@ function have_posts($post_id, $the_title, $the_content, $the_permalink, $the_pos
 
             </div>
         <?php } ?>
-
 <?php } ?>
