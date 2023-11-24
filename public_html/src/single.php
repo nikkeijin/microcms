@@ -10,19 +10,23 @@ function single_page($client) {
         $single_page = false;
     }
 
-    if(!$single_page) { include(__DIR__ . '/../theme/pages/404.php'); return; }
+    if(!$single_page) { 
+        include(__DIR__ . '/../theme/pages/404.php'); return; 
+    }
 
+    /*
+    echo '<pre>';
+        print_r($single_page);
+    echo '</pre>';
+    */
+    
     $postId = $_GET['id'];
     $single_page = $client->get("news", $postId);
 
     $the_title = $single_page->title;
     $the_content = $single_page->content;
-
-    if (isset($single_page->thumbnail) && isset($single_page->thumbnail->url)) {
-        $the_post_thumbnail_url = $single_page->thumbnail->url;
-    } else {
-        $the_post_thumbnail_url = 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80';
-    }
+    $the_category = isset($single_page->category->name) ? $single_page->category->name : '';
+    $the_post_thumbnail_url = isset($single_page->thumbnail->url) ? $single_page->thumbnail->url : 'https://picsum.photos/1024';
 
     include(__DIR__ . '/../theme/archive/single.php');
 
@@ -30,4 +34,3 @@ function single_page($client) {
 single_page($client);
 
 ?>
-
