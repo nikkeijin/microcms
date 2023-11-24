@@ -67,10 +67,11 @@
     Setting Pagination
 
     */
-    
+
     function the_posts_pagination($page, $totalPages) {
 
-    if ($page > $totalPages && $totalPages > 0) return; ?>
+    if ($page > $totalPages && $totalPages > 0) return;
+?>
     
     <!-- pagination-->
     <div class="nav-links">
