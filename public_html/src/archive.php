@@ -1,16 +1,15 @@
 <?php
+    /*
 
-/*
+    ################################################## 
 
-################################################## 
+    Fetching Data from API for Archive
 
-Fetching Data from API for Archive
+    */
 
-*/
+    include_once('api.php');
 
-include_once('api.php');
-
-$perPage = 6;
+    $perPage = 6;
     $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 
     global $archive;
@@ -21,20 +20,17 @@ $perPage = 6;
     ]);
 
     $totalPages = ceil($archive->totalCount / $perPage);
-
 ?>
 
 
 <?php
+    /*
 
+    ################################################## 
 
-/*
+    Setting Archive and Post Templates
 
-################################################## 
-
-Setting Archive and Post Templates
-
-*/
+    */
 
     include(__DIR__ . '/../theme/archive/archive.php');
     
@@ -54,20 +50,17 @@ Setting Archive and Post Templates
             include(__DIR__ . '/../theme/components/post.php');
         }
     }
-
 ?>
 
 
 <?php
+    /*
 
+    ################################################## 
 
-/*
+    Setting Pagination for Archive
 
-################################################## 
-
-Setting Pagination for Archive
-
-*/
+    */
     
     function the_posts_pagination($page, $totalPages) {
 
@@ -90,5 +83,4 @@ Setting Pagination for Archive
         <?php endif; ?>
 
     </div>
-
 <?php } ?>
