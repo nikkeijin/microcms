@@ -3,7 +3,7 @@
 
     ################################################## 
 
-    Fetching Data from API for Archive
+    Fetching Data from API ($client)
 
     */
 
@@ -28,25 +28,31 @@
 
     ################################################## 
 
-    Setting Archive and Post Templates
+    Archive Template
 
     */
 
-    include(__DIR__ . '/../theme/archive/archive.php');
-    
+    include(__DIR__ . '/../theme/archive/archive.php'); 
+?>
+
+
+<?php
+    /*
+
+    ################################################## 
+
+    Setting Post Loop
+
+    */
     function the_post() {
-
         global $archive;
-
         foreach ($archive->contents as $single_page) {
-
             $the_ID = $single_page->id;
             $the_title = $single_page->title;
             $the_content = $single_page->content;
             $the_permalink = "post?id=" . $the_ID;
             $the_category = isset($single_page->category->name) ? $single_page->category->name : '';
             $the_post_thumbnail_url = isset($single_page->thumbnail->url) ? $single_page->thumbnail->url : 'https://picsum.photos/1024';
-            
             include(__DIR__ . '/../theme/components/post.php');
         }
     }
@@ -58,7 +64,7 @@
 
     ################################################## 
 
-    Setting Pagination for Archive
+    Setting Pagination
 
     */
     
