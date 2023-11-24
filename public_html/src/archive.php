@@ -1,12 +1,20 @@
-<?php include_once('api.php'); ?>
-
 <?php
 
-    $perPage = 6;
+/*
+
+################################################## 
+
+Fetching Data from API for Archive
+
+*/
+
+include_once('api.php');
+
+$perPage = 6;
     $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 
     global $archive;
-    
+
     $archive = $client->list("news", [
         'offset' => ($page - 1) * $perPage,
         'limit' => $perPage
@@ -16,7 +24,17 @@
 
 ?>
 
+
 <?php
+
+
+/*
+
+################################################## 
+
+Setting Archive and Post Templates
+
+*/
 
     include(__DIR__ . '/../theme/archive/archive.php');
     
@@ -25,12 +43,6 @@
         global $archive;
 
         foreach ($archive->contents as $single_page) {
-
-            /*
-            echo '<pre>';
-                print_r($archive);
-            echo '</pre>';
-            */
 
             $the_ID = $single_page->id;
             $the_title = $single_page->title;
@@ -45,7 +57,17 @@
 
 ?>
 
+
 <?php
+
+
+/*
+
+################################################## 
+
+Setting Pagination for Archive
+
+*/
     
     function the_posts_pagination($page, $totalPages) {
 
