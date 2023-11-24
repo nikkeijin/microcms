@@ -6,12 +6,17 @@
     $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 
     global $archive;
+    
     $archive = $client->list("news", [
         'offset' => ($page - 1) * $perPage,
         'limit' => $perPage
     ]);
 
     $totalPages = ceil($archive->totalCount / $perPage);
+
+?>
+
+<?php
 
     include(__DIR__ . '/../theme/archive/archive.php');
     
@@ -34,21 +39,11 @@
             $the_category = isset($single_page->category->name) ? $single_page->category->name : '';
             $the_post_thumbnail_url = isset($single_page->thumbnail->url) ? $single_page->thumbnail->url : 'https://picsum.photos/1024';
             
-            if (function_exists('have_posts')) have_posts($the_ID, $the_title, $the_category, $the_content, $the_permalink, $the_post_thumbnail_url);
-
+            include(__DIR__ . '/../theme/components/post.php');
         }
     }
 
 ?>
-
-<?php
-
-function have_posts($the_ID, $the_title, $the_category, $the_content, $the_permalink, $the_post_thumbnail_url) {
-    include(__DIR__ . '/../theme/components/post.php');
-}
-
-?>
-
 
 <?php
     
