@@ -88,6 +88,5 @@
         <?php if ($page < $totalPages): ?>
         <a class="next page-numbers" href="?page=<?php echo $page + 1; ?>">Next</a>
         <?php endif; ?>
-
     </div>
 <?php } ?>
